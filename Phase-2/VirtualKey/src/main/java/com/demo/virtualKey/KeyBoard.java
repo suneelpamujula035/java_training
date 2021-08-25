@@ -11,6 +11,7 @@ public class KeyBoard {
 
 	String headLine = "Welcome to Virtual Key Application";
 	String developerName;
+	String path = "./src/main/directory";
 
 	public KeyBoard(String developerName) {
 		this.developerName = developerName;
@@ -85,7 +86,7 @@ public class KeyBoard {
 	public void showFiles() {
 		System.out.println("List of Files");
 		System.out.println("----------------------");
-		File f = new File("./src/main/directory");
+		File f = new File(path);
 		String[] listOfFiles = f.list();
 		Arrays.sort(listOfFiles);
 		for (String s : listOfFiles) {
@@ -131,7 +132,7 @@ public class KeyBoard {
 	}
 
 	public void addFile(String fileName) throws IOException {
-		File f = new File("./src/main/directory", fileName);
+		File f = new File(path, fileName);
 		if (fileName == null || fileName == "") {
 			System.out.println("File name can't be null....");
 		} else {
@@ -145,7 +146,7 @@ public class KeyBoard {
 	}
 
 	public void deleteFile(String fileName) {
-		File f = new File("./src/main/directory/" + fileName);
+		File f = new File(path, fileName);
 		boolean file = f.isFile();
 		boolean status = f.delete();
 		if (fileName.equals(null) || fileName == "") {
@@ -156,13 +157,13 @@ public class KeyBoard {
 					System.out.println("File deleted successfully with name : " + fileName);
 				}
 			} else {
-				System.out.println("File not found");
+				System.out.println("Please enter correct file name..");
 			}
 		}
 	}
 
 	public void searchFile(String fileName) {
-		File f = new File("./src/main/directory", fileName);
+		File f = new File(path, fileName);
 		boolean status = f.exists();
 		if (fileName.equals(null) || fileName == "") {
 			System.out.println("File name can't be empty..");
