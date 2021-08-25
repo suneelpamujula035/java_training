@@ -35,7 +35,7 @@ public class KeyBoard {
 		mainOpt.add("1. Show Files");
 		mainOpt.add("2. Show sub menu");
 		mainOpt.add("3. Exit");
-		mainOpt.forEach(x -> System.out.println(x));
+		mainOpt.stream().forEach(System.out::println);
 		System.out.println(
 				"====================================================================================================");
 	}
